@@ -1,3 +1,35 @@
+const aboutUs = {
+  address: "Jl. Usman Effendi No. 50 Lowokwaru, Malang",
+  phone: "+62-877-7123-1234",
+  email: "T6t6o@example.com",
+
+  facebook: "https://www.facebook.com/",
+  twitter: "https://twitter.com/",
+  instagram: "https://www.instagram.com/",
+  linkedin: "https://www.linkedin.com/",
+};
+
+const allMenu = {
+  kategori: [
+    { title: "Digital & Teknologi", href: "#" },
+    { title: "Pemasaran", href: "#" },
+    { title: "Manajemen Bisnis", href: "#" },
+    { title: "Pengembangan Diri", href: "#" },
+    { title: "Desain", href: "#" },
+  ],
+  perusahaan: [
+    { title: "Tentang Kami", href: "#" },
+    { title: "FAQ", href: "#" },
+    { title: "Kebijakan Privasi", href: "#" },
+    { title: "Ketentuan Layanan", href: "#" },
+    { title: "Bantuan", href: "#" },
+  ],
+  komunitas: [
+    { title: "Tips Sukses", href: "#" },
+    { title: "Blog", href: "#" },
+  ],
+};
+
 const videoPembelajaran: {
   image: string;
   title: string;
@@ -160,25 +192,4 @@ const videoPembelajaran: {
   },
 ];
 
-const kategori: { title: string; href: string }[] = [
-  { title: "Digital & Teknologi", href: "#" },
-  { title: "Pemasaran", href: "#" },
-  { title: "Manajemen Bisnis", href: "#" },
-  { title: "Pengembangan Diri", href: "#" },
-  { title: "Desain", href: "#" },
-];
-
-const perusahaan: { title: string; href: string }[] = [
-  { title: "Tentang Kami", href: "#" },
-  { title: "FAQ", href: "#" },
-  { title: "Kebijakan Privasi", href: "#" },
-  { title: "Ketentuan Layanan", href: "#" },
-  { title: "Bantuan", href: "#" },
-];
-
-const komunitas: { title: string; href: string }[] = [
-  { title: "Tips Sukses", href: "#" },
-  { title: "Blog", href: "#" },
-];
-
-export { videoPembelajaran, kategori, perusahaan, komunitas };
+export { aboutUs, videoPembelajaran, allMenu };

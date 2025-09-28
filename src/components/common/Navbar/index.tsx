@@ -3,6 +3,7 @@ import React from "react";
 import AvatarProfile from "../AvatarProfile";
 import CategoryDropdown from "./component/CategoryDropdown";
 import MenuSheet from "./component/MenuSheet/index";
+import AvatarDropdown from "./component/AvatarDropdown";
 
 const Navbar = () => {
   return (
@@ -24,12 +25,7 @@ const Navbar = () => {
         <div className="items-center hidden gap-4 lg:flex">
           <CategoryDropdown />
 
-          <a href="#">
-            <AvatarProfile
-              src="/image/avatar-women.png"
-              className="w-10 h-10 rounded-md"
-            />
-          </a>
+          <AvatarDropdown />
         </div>
 
         {/* Kategori & Avatar Mobile */}
