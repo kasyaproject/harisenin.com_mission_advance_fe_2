@@ -8,21 +8,21 @@ type Props = {
 
 const CategoryButton = ({ buttonCategory, setButtonCategory }: Props) => {
   return (
-    <div className="flex items-center px-2 pb-4 pr-10 my-10 space-x-6 overflow-x-auto lg:pb-0 lg:pr-0">
+    <div className="flex items-center px-2 pb-4 pr-10 my-6 space-x-6 overflow-x-auto lg:my-10 lg:pb-0 lg:pr-0">
       {/* Kategori Semua Video */}
       <button
         onClick={() => setButtonCategory("all")}
-        className="flex flex-col gap-2 hover:cursor-pointer"
+        className="flex flex-col gap-1 lg:gap-2 hover:cursor-pointer"
       >
         <p
-          className={`font-medium text-nowrap ${
+          className={`font-medium text-sm lg:text-base text-nowrap ${
             buttonCategory === "all" ? "text-tertiary" : ""
           }`}
         >
           Semua Kelas
         </p>
         <div
-          className={`w-3/4 h-2 rounded-full ${
+          className={`w-3/4 lg:h-2 h-1 rounded-full ${
             buttonCategory === "all" && "bg-tertiary"
           }`}
         ></div>
@@ -33,17 +33,17 @@ const CategoryButton = ({ buttonCategory, setButtonCategory }: Props) => {
         <button
           onClick={() => setButtonCategory(item.title)}
           key={index}
-          className="flex flex-col gap-2 hover:cursor-pointer"
+          className="flex flex-col gap-1 lg:gap-2 hover:cursor-pointer"
         >
           <p
-            className={`font-medium text-nowrap ${
+            className={`font-medium text-nowrap text-sm lg:text-base ${
               buttonCategory === item.title ? "text-tertiary" : ""
             }`}
           >
             {item.title}
           </p>
           <div
-            className={`w-3/4 h-2 rounded-full ${
+            className={`w-3/4 lg:h-2 h-1 rounded-full ${
               buttonCategory === item.title && "bg-tertiary"
             }`}
           ></div>
