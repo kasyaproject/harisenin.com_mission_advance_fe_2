@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import CategoryDropdown from "./component/CategoryDropdown";
 import MenuSheet from "./component/MenuSheet/index";
 import AvatarDropdown from "./component/AvatarDropdown";
@@ -15,7 +16,7 @@ const Navbar = (props: PropTypes) => {
     <header className="sticky top-0 z-50 w-full px-4 py-2 bg-white border-b border-gray-200 lg:px-2">
       <nav className="flex items-center justify-between w-full max-w-6xl mx-auto ">
         <div>
-          <a href="/">
+          <Link href="/">
             <Image
               src="/image/logo.svg"
               alt="logo"
@@ -23,7 +24,7 @@ const Navbar = (props: PropTypes) => {
               height={50}
               className="w-36 lg:w-52"
             />
-          </a>
+          </Link>
         </div>
 
         {menu && (
