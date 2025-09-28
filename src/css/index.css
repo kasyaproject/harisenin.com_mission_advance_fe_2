@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Lato"; /* kasih nama Lato */
+  src: url("/font/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* color */
+  --color-primary: #3ecf4c;
+  --color-secondary: #ffbd3a;
+  --color-tertiary: #f64920;
+
+  /* font */
+  --font-sans: "Lato", sans-serif;
+}
+
+body {
+  background: var(--primary);
+  font-family: var(--font-lato);
+}
