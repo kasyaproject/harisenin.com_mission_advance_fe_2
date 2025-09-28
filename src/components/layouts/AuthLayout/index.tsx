@@ -18,8 +18,10 @@ const AuthLayout = (props: PropTypes) => {
       <Navbar menu={false} />
 
       {/* Main Section */}
-      <main className="flex items-center justify-center w-full h-[calc(100vh-66px)]">
-        <div className="w-full max-w-md px-4 py-6 mx-auto ">{children}</div>
+      <main className="flex items-center justify-center w-full h-[calc(100vh-66px)] px-2 ">
+        <div className="flex flex-col items-center justify-center w-full max-w-md p-2 px-4 py-8 mx-auto bg-white border border-gray-200 rounded-lg lg:py-10 lg:px-6">
+          {children}
+        </div>
       </main>
     </div>
   );
