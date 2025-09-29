@@ -8,7 +8,7 @@ const PageHead = ({ title }: PropTypes) => {
     <>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{title}</title>
+      <title>{`VideoBelajar | ${title}`}</title>
 
       <link rel="icon" href="/logo.svg" type="image/x-icon" />
     </>

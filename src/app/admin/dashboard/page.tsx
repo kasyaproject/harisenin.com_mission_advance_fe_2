@@ -1,11 +1,15 @@
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 import DashboardView from "@/components/view/Admin/DashboardView";
 import React from "react";
 
 const DashboardPage = () => {
   return (
-    <div>
+    <DashboardLayout
+      title="Dashboard"
+      desc="Overview of your application performance, analytics, and recent activities."
+    >
       <DashboardView />
-    </div>
+    </DashboardLayout>
   );
 };
 

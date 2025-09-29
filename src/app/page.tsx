@@ -3,7 +3,7 @@ import HomeView from "@/components/view/HomeView";
 
 const HomePage = () => {
   return (
-    <MainLayout title="VideoBelajar | Homepage">
+    <MainLayout title="Homepage">
       <HomeView />
     </MainLayout>
   );

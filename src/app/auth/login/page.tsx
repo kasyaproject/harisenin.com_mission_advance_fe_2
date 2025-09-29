@@ -4,7 +4,7 @@ import LoginView from "@/components/view/Auth/LoginView";
 
 const LoginPage = () => {
   return (
-    <AuthLayout title="VideoBelajar | Register Page">
+    <AuthLayout title="Register Page">
       <LoginView />
     </AuthLayout>
   );

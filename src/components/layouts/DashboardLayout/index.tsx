@@ -17,7 +17,7 @@ const DashboardLayout = (props: PropTypes) => {
   const { title, desc, children } = props;
 
   return (
-    <SidebarProvider>
+    <SidebarProvider className="bg-gray- ">
       {/* Title & Head */}
       <PageHead title={title} />
 
@@ -25,16 +25,19 @@ const DashboardLayout = (props: PropTypes) => {
       <AppSidebar sidebarItems={SIDEBAR_ADMIN} />
 
       {/* Main Section */}
-      <main className="w-full min-h-screen p-4">
+      <main className="w-full min-h-screen bg-gray-100">
         {/* Header Section */}
-        <div className="flex items-center h-6 gap-1 mb-5 lg:h-6">
+        <div className="flex items-center h-24 gap-1 px-4 py-6 mb-4 bg-white bg-blue">
           {/* Sidebar Trigger */}
-          <SidebarTrigger className="hover:bg-gray-100 hover:text-gray-800 hover:cursor-pointer" />
+          <SidebarTrigger className="w-10 h-10 hover:bg-gray-100 hover:text-gray-800 hover:cursor-pointer" />
 
-          <Separator orientation="vertical" className="mr-1 bg-black" />
+          <Separator orientation="vertical" className="mr-2 bg-black" />
 
           {/* Title */}
-          <h1 className="text-lg ">{desc}</h1>
+          <div className="flex flex-col">
+            <h1 className="font-semibold lg:text-xl">{title}</h1>
+            <p className="text-xs lg:text-sm ">{desc}</p>
+          </div>
         </div>
 
         {/* Main Content */}

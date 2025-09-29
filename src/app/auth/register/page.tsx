@@ -4,7 +4,7 @@ import RegisterView from "@/components/view/Auth/RegisterView";
 
 const RegisterPage = () => {
   return (
-    <AuthLayout title="VideoBelajar | Register Page">
+    <AuthLayout title="Register Page">
       <RegisterView />
     </AuthLayout>
   );

@@ -1,11 +1,15 @@
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 import ProductView from "@/components/view/Admin/ProductView";
 import React from "react";
 
 const ProductPage = () => {
   return (
-    <div>
+    <DashboardLayout
+      title="Product Page"
+      desc="Manage and organize your products efficiently. Add, edit, or remove items from your catalog."
+    >
       <ProductView />
-    </div>
+    </DashboardLayout>
   );
 };
 
