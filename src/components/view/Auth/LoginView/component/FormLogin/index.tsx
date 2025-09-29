@@ -2,27 +2,16 @@
 
 import { Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
+import useFormLogin from "./useFormLogin";
 
 const FormLogin = () => {
-  const [showPassword, setShowPassword] = useState(true);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  // handle perubahan input
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  // handle submit
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Data form login:", formData);
-  };
+  const {
+    showPassword,
+    setShowPassword,
+    formData,
+    handleChange,
+    handleSubmit,
+  } = useFormLogin();
 
   return (
     <form onSubmit={handleSubmit} className="w-full mt-6">

@@ -1,6 +1,6 @@
+import React from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import ProductView from "@/components/view/Admin/ProductView";
-import React from "react";
 
 const ProductPage = () => {
   return (

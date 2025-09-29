@@ -1,5 +1,5 @@
 import React from "react";
-import { allMenu } from "@/constant/constant";
+import { ALL_MENU } from "@/constant/constant";
 
 type Props = {
   buttonCategory: string;
@@ -29,7 +29,7 @@ const CategoryButton = ({ buttonCategory, setButtonCategory }: Props) => {
       </button>
 
       {/* Kategori Video By Kategori */}
-      {allMenu.kategori.map((item, index) => (
+      {ALL_MENU.kategori.map((item, index) => (
         <button
           onClick={() => setButtonCategory(item.title)}
           key={index}

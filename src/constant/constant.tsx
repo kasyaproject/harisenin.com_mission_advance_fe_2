@@ -1,6 +1,6 @@
 import { Apple, LayoutDashboard } from "lucide-react";
 
-const aboutUs = {
+const ABOUT_US = {
   address: "Jl. Usman Effendi No. 50 Lowokwaru, Malang",
   phone: "+62-877-7123-1234",
   email: "T6t6o@example.com",
@@ -11,7 +11,7 @@ const aboutUs = {
   linkedin: "https://www.linkedin.com/",
 };
 
-const allMenu = {
+const ALL_MENU = {
   kategori: [
     { title: "Digital & Teknologi", href: "#" },
     { title: "Pemasaran", href: "#" },
@@ -32,24 +32,7 @@ const allMenu = {
   ],
 };
 
-const videoPembelajaran: {
-  id: number;
-  image: string;
-  title: string;
-  desc: string;
-  category: string[];
-
-  author: string;
-  authorImage: string;
-  authorTitle: string;
-  aurhorCompany: string;
-
-  rating: number;
-  review: number;
-  price: number;
-  discount: number;
-  href: string;
-}[] = [
+const VIDEO_PEMBELAJARAN = [
   {
     id: 1,
     image: "/image/cover/1.jpg",
@@ -66,7 +49,6 @@ const videoPembelajaran: {
     review: 10,
     price: 100000,
     discount: 20,
-    href: "#",
   },
   {
     id: 2,
@@ -84,7 +66,6 @@ const videoPembelajaran: {
     review: 8,
     price: 50000,
     discount: 20,
-    href: "#",
   },
   {
     id: 3,
@@ -102,7 +83,6 @@ const videoPembelajaran: {
     review: 5,
     price: 150000,
     discount: 20,
-    href: "#",
   },
   {
     id: 4,
@@ -120,7 +100,6 @@ const videoPembelajaran: {
     review: 12,
     price: 200000,
     discount: 20,
-    href: "#",
   },
   {
     id: 5,
@@ -138,7 +117,6 @@ const videoPembelajaran: {
     review: 7,
     price: 100000,
     discount: 20,
-    href: "#",
   },
   {
     id: 6,
@@ -156,7 +134,6 @@ const videoPembelajaran: {
     review: 10,
     price: 150000,
     discount: 20,
-    href: "#",
   },
   {
     id: 7,
@@ -174,7 +151,6 @@ const videoPembelajaran: {
     review: 15,
     price: 200000,
     discount: 20,
-    href: "#",
   },
   {
     id: 8,
@@ -192,7 +168,6 @@ const videoPembelajaran: {
     review: 8,
     price: 150000,
     discount: 20,
-    href: "#",
   },
   {
     id: 9,
@@ -210,7 +185,6 @@ const videoPembelajaran: {
     review: 6,
     price: 100000,
     discount: 20,
-    href: "#",
   },
 ];
 
@@ -227,4 +201,21 @@ const SIDEBAR_ADMIN = [
   },
 ];
 
-export { aboutUs, videoPembelajaran, allMenu, SIDEBAR_ADMIN };
+const COUNTRY_NUMBER_CODE = [
+  { code: "id", dial: "+62", flag: "/image/flag/id.svg", name: "Indonesia" },
+  { code: "us", dial: "+1", flag: "/image/flag/us.svg", name: "United States" },
+  {
+    code: "uk",
+    dial: "+65",
+    flag: "/image/flag/uk.svg",
+    name: "United Kingdom",
+  },
+];
+
+export {
+  ABOUT_US,
+  VIDEO_PEMBELAJARAN,
+  ALL_MENU,
+  SIDEBAR_ADMIN,
+  COUNTRY_NUMBER_CODE,
+};

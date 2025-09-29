@@ -1,5 +1,5 @@
 import React from "react";
-import { aboutUs } from "@/constant/constant";
+import { ABOUT_US } from "@/constant/constant";
 import Image from "next/image";
 
 const AboutusSection = () => {
@@ -18,8 +18,8 @@ const AboutusSection = () => {
       <p className="font-semibold lg:text-lg">
         Gali Potensi Anda Melalui Pembelajaran Video di hariesok.id!
       </p>
-      <p className="lg:text-lg">{aboutUs.address}</p>
-      <p className="lg:text-lg">{aboutUs.phone}</p>
+      <p className="lg:text-lg">{ABOUT_US.address}</p>
+      <p className="lg:text-lg">{ABOUT_US.phone}</p>
     </div>
   );
 };

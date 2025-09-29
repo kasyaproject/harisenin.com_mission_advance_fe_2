@@ -10,55 +10,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Image from "next/image";
-
-const countries = [
-  { code: "id", dial: "+62", flag: "/image/flag/id.svg", name: "Indonesia" },
-  { code: "us", dial: "+1", flag: "/image/flag/us.svg", name: "United States" },
-  {
-    code: "uk",
-    dial: "+65",
-    flag: "/image/flag/uk.svg",
-    name: "United Kingdom",
-  },
-];
+import useFormRegister from "./useFormRegister";
+import { COUNTRY_NUMBER_CODE } from "@/constant/constant";
 
 const FormRegister = () => {
-  const [showPassword, setShowPassword] = useState(true);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(true);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    country: "id",
-    number: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  // handle perubahan input
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  // handle perubahan country
-  const handleCountryChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, country: value }));
-  };
-
-  // handle submit
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const selectedCountry = countries.find(
-      (item) => item.code === formData.country
-    );
-
-    const fullPhone = `${selectedCountry?.dial}${formData.number}`;
-
-    console.log("Data form register:", { ...formData, phone: fullPhone });
-  };
+  const {
+    showPassword,
+    setShowPassword,
+    showConfirmPassword,
+    setShowConfirmPassword,
+    formData,
+    handleChange,
+    handleCountryChange,
+    handleSubmit,
+  } = useFormRegister();
 
   return (
     <form onSubmit={handleSubmit} className="w-full mt-6">
@@ -110,7 +75,7 @@ const FormRegister = () => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-white">
-              {countries.map((item) => (
+              {COUNTRY_NUMBER_CODE.map((item) => (
                 <SelectItem key={item.code} value={item.code}>
                   <div className="flex items-center gap-2">
                     <Image

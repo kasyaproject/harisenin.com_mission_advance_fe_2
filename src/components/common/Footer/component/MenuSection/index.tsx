@@ -1,5 +1,5 @@
 import React from "react";
-import { allMenu } from "@/constant/constant";
+import { ALL_MENU } from "@/constant/constant";
 import {
   Accordion,
   AccordionContent,
@@ -13,7 +13,7 @@ const MenuSection = () => {
       {/* <!-- Kategori & Perusahaan & Komunitas DESKTOP --> */}
       <div className="hidden lg:block">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {Object.entries(allMenu).map(([section, items], idx) => (
+          {Object.entries(ALL_MENU).map(([section, items], idx) => (
             <div key={idx}>
               <h3 className="font-semibold capitalize">{section}</h3>
               <ol className="mt-2 space-y-2 font-semibold text-gray-500">
@@ -33,7 +33,7 @@ const MenuSection = () => {
       {/* <!-- Kategori & Perusahaan & Komunitas MOBILE --> */}
       <div className="block w-full lg:hidden">
         <Accordion type="single" collapsible>
-          {Object.entries(allMenu).map(([section, items], idx) => (
+          {Object.entries(ALL_MENU).map(([section, items], idx) => (
             <AccordionItem key={idx} value={`item-${idx}`}>
               <AccordionTrigger className="font-semibold capitalize">
                 {section}

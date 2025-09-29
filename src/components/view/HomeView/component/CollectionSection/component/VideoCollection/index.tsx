@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import CategoryButton from "../CategoryButton";
-import { videoPembelajaran } from "@/constant/constant";
 import VideoCard from "@/components/common/VideoCard";
+import useVideoCollection from "./useVideoCollection";
 
 const VideoCollection = () => {
-  const [categoryVideo, setCategoryVideo] = useState("all");
+  const { productList, categoryVideo, setCategoryVideo } = useVideoCollection();
 
   return (
     <div>
@@ -16,7 +16,7 @@ const VideoCollection = () => {
       />
 
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-        {videoPembelajaran
+        {productList
           .filter(
             (item) =>
               categoryVideo === "all" || item.category.includes(categoryVideo)

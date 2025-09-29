@@ -68,7 +68,9 @@ export function AppSidebar(props: PropTypes) {
                   className={cn(
                     "hover:bg-gray-200 rounded-md hover:text-gray-800 hover:cursor-pointer",
                     {
-                      "bg-gray-100": pathname === item.href, // ✅ cek apakah path aktif
+                      "bg-gray-100":
+                        pathname === item.href ||
+                        pathname.startsWith(item.href + "/"), // ✅ cek apakah path aktif
                     }
                   )}
                 >

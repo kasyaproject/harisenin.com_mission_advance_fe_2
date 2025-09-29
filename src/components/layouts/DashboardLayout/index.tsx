@@ -17,7 +17,7 @@ const DashboardLayout = (props: PropTypes) => {
   const { title, desc, children } = props;
 
   return (
-    <SidebarProvider className="bg-gray- ">
+    <SidebarProvider>
       {/* Title & Head */}
       <PageHead title={title} />
 

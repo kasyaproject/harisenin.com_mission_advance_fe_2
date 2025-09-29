@@ -1,4 +1,4 @@
-import { aboutUs } from "@/constant/constant";
+import { ABOUT_US } from "@/constant/constant";
 import Image from "next/image";
 import React from "react";
 
@@ -10,7 +10,7 @@ const CopyrightSection = () => {
       </p>
 
       <div className="flex items-center gap-2 lg:gap-4">
-        <a href={aboutUs.linkedin} target="_blank">
+        <a href={ABOUT_US.linkedin} target="_blank">
           <Image
             src="/image/sosial_media/linkedin.svg"
             alt="linkedin"
@@ -19,7 +19,7 @@ const CopyrightSection = () => {
             className="rounded-full hover:bg-gray-100"
           />
         </a>
-        <a href={aboutUs.facebook} target="_blank">
+        <a href={ABOUT_US.facebook} target="_blank">
           <Image
             src="/image/sosial_media/facebook.svg"
             alt="facebook"
@@ -28,7 +28,7 @@ const CopyrightSection = () => {
             className="rounded-full hover:bg-gray-100"
           />
         </a>
-        <a href={aboutUs.instagram} target="_blank">
+        <a href={ABOUT_US.instagram} target="_blank">
           <Image
             src="/image/sosial_media/instagram.svg"
             alt="instagram"
@@ -37,7 +37,7 @@ const CopyrightSection = () => {
             className="rounded-full hover:bg-gray-100"
           />
         </a>
-        <a href={aboutUs.twitter} target="_blank">
+        <a href={ABOUT_US.twitter} target="_blank">
           <Image
             src="/image/sosial_media/twitter.svg"
             alt="twitter"

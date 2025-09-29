@@ -10,21 +10,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import Image from "next/image";
-import { stringify } from "querystring";
+import { IProduct } from "@/types/Product";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Product = {
-  id: number;
-  image: string;
-  title: string;
-  desc: string;
-  author: string;
-  price: number;
-  discount: number;
-};
-
-export const columns: ColumnDef<Product>[] = [
+export const getColumns = (
+  handleDelete: (id: number) => void
+): ColumnDef<IProduct>[] => [
   // column image
   {
     accessorKey: "image",
@@ -108,8 +98,7 @@ export const columns: ColumnDef<Product>[] = [
             </DropdownMenuItem>
             <DropdownMenuItem
               className="text-red-600"
-              onClick={() => console.log(row.original.id)}
-              // onClick={() => router.push(`/products/edit/${row.getValue("id")}`)}
+              onClick={() => handleDelete(row.original.id)}
             >
               Delete
             </DropdownMenuItem>

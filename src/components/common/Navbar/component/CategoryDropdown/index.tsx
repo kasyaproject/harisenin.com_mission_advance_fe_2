@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { allMenu } from "@/constant/constant";
+import { ALL_MENU } from "@/constant/constant";
 
 const CategoryDropdown = () => {
   return (
@@ -30,7 +30,7 @@ const CategoryDropdown = () => {
           </div>
           <div className="flex items-center justify-center flex-1 ">
             <div className="grid w-full grid-cols-2 gap-4">
-              {allMenu.kategori.map((item, index) => (
+              {ALL_MENU.kategori.map((item, index) => (
                 <DropdownMenuItem
                   key={index}
                   className="cursor-pointer hover:bg-gray-100"
