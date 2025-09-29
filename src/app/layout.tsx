@@ -7,10 +7,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* custom head di sini */}
-        <link rel="icon" href="/image/logo.svg" type="image/x-icon" />
-      </head>
       <body>{children}</body>
     </html>
   );

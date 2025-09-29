@@ -1,16 +1,10 @@
 import MainLayout from "@/components/layouts/MainLayout";
-import HeroSection from "./component/HeroSection/index";
-import CollectionSection from "./component/CollectionSection";
-import NewsSection from "./component/NewsSection";
+import HomeView from "@/components/view/HomeView";
 
 const HomePage = () => {
   return (
     <MainLayout title="VideoBelajar | Homepage">
-      <HeroSection />
-
-      <CollectionSection />
-
-      <NewsSection />
+      <HomeView />
     </MainLayout>
   );
 };

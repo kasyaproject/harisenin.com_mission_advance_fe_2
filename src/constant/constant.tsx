@@ -44,6 +44,7 @@ const videoPembelajaran: {
   rating: number;
   review: number;
   price: number;
+  discount: number;
   href: string;
 }[] = [
   {
@@ -60,6 +61,7 @@ const videoPembelajaran: {
     rating: 4.5,
     review: 10,
     price: 100000,
+    discount: 20,
     href: "#",
   },
   {
@@ -76,6 +78,7 @@ const videoPembelajaran: {
     rating: 2.5,
     review: 8,
     price: 50000,
+    discount: 20,
     href: "#",
   },
   {
@@ -92,6 +95,7 @@ const videoPembelajaran: {
     rating: 3.0,
     review: 5,
     price: 150000,
+    discount: 20,
     href: "#",
   },
   {
@@ -108,6 +112,7 @@ const videoPembelajaran: {
     rating: 4.0,
     review: 12,
     price: 200000,
+    discount: 20,
     href: "#",
   },
   {
@@ -124,6 +129,7 @@ const videoPembelajaran: {
     rating: 3.5,
     review: 7,
     price: 100000,
+    discount: 20,
     href: "#",
   },
   {
@@ -140,6 +146,7 @@ const videoPembelajaran: {
     rating: 4.5,
     review: 10,
     price: 150000,
+    discount: 20,
     href: "#",
   },
   {
@@ -156,6 +163,7 @@ const videoPembelajaran: {
     rating: 5.0,
     review: 15,
     price: 200000,
+    discount: 20,
     href: "#",
   },
   {
@@ -172,6 +180,7 @@ const videoPembelajaran: {
     rating: 4.5,
     review: 8,
     price: 150000,
+    discount: 20,
     href: "#",
   },
   {
@@ -188,6 +197,7 @@ const videoPembelajaran: {
     rating: 3.5,
     review: 6,
     price: 100000,
+    discount: 20,
     href: "#",
   },
 ];

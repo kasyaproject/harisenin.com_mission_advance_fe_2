@@ -15,6 +15,7 @@ interface PropTypes {
   rating: number;
   review?: number;
   price: number;
+  discount: number;
   href: string;
 }
 
@@ -80,7 +81,7 @@ const VideoCard = ({ item }: { item: PropTypes }) => {
           </p>
         </div>
         <p className="text-2xl font-semibold text-primary">
-          Rp {formatK(item.price)}
+          Rp {formatK(item.price - (item.price * item.discount) / 100)}
         </p>
       </div>
     </div>

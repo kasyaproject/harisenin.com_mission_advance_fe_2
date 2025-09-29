@@ -32,10 +32,10 @@ const AvatarDropdown = () => {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuGroup className="mx-2">
           <DropdownMenuItem className="hover:cursor-pointer">
-            <Link href="#">Profile</Link>
+            <Link href="/admin/dashboard">Dashboard</Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:cursor-pointer">
-            <Link href="#">Settings</Link>
+            <Link href="#">Profile</Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
