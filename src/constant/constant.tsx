@@ -1,3 +1,5 @@
+import { Apple, LayoutDashboard } from "lucide-react";
+
 const aboutUs = {
   address: "Jl. Usman Effendi No. 50 Lowokwaru, Malang",
   phone: "+62-877-7123-1234",
@@ -202,4 +204,17 @@ const videoPembelajaran: {
   },
 ];
 
-export { aboutUs, videoPembelajaran, allMenu };
+const SIDEBAR_ADMIN = [
+  {
+    title: "Dashboard",
+    icon: <LayoutDashboard />,
+    href: "/admin/dashboard",
+  },
+  {
+    title: "Product",
+    icon: <Apple />,
+    href: "/admin/product",
+  },
+];
+
+export { aboutUs, videoPembelajaran, allMenu, SIDEBAR_ADMIN };
