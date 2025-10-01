@@ -1,5 +1,5 @@
 interface IProduct {
-  id?: number;
+  id: number;
   image?: string;
   title?: string;
   desc?: string;
