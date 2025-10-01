@@ -14,7 +14,7 @@ import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
 
 export const getColumns = (
-  handleDelete: (id: number) => void
+  handleDelete: (data: IProduct) => void
 ): ColumnDef<IProduct>[] => [
   // column image
   {
@@ -110,9 +110,7 @@ export const getColumns = (
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="text-red-600 hover:cursor-pointer"
-                onClick={() =>
-                  handleDelete(`${row.original.id} ` as unknown as number)
-                }
+                onClick={() => handleDelete(row.original)}
               >
                 Delete
               </DropdownMenuItem>

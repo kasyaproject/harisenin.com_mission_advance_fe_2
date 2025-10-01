@@ -25,9 +25,13 @@ const useProductView = () => {
   }, []);
 
   // Handle Delete Product
-  const handleDelete = (id: number) => {
+  const handleDelete = (data: IProduct) => {
     setProductList((productList) => {
-      const updated = productList.filter((item) => item.id !== id);
+      const updated = productList.filter((item) => item.id !== data.id);
+
+      // Tampilkan notifikasi sukses
+      alert(`✅ Product "${data.title}" deleted successfully!`);
+
       // Simpan perubahan ke localStorage
       localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(updated));
       return updated;
