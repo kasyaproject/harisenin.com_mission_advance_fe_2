@@ -16,7 +16,6 @@ interface PropTypes {
   review?: number;
   price: number;
   discount: number;
-  href: string;
 }
 
 const VideoCard = ({ item }: { item: PropTypes }) => {
