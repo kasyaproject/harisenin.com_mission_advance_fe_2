@@ -32,7 +32,7 @@ const useDetailProductView = () => {
   // Handle submit untuk update data
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement>,
-    formData: Record<string, IProduct>
+    formData: Partial<IProduct>
   ) => {
     e.preventDefault();
 
