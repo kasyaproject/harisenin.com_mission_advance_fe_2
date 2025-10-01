@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import useAddFormProduct from "./useAddFormProduct";
 import { Button } from "@/components/ui/button";
 import { MultiSelect } from "@/components/ui/multi-select";
@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 const FormAddProduct = () => {
   const {
     formData,
-    setFormData,
     handleChange,
     handleCategoryChange,
     handleFileChange,
@@ -59,7 +58,7 @@ const FormAddProduct = () => {
               alt="preview"
               width={400}
               height={300}
-              className="object-center h-full rounded-lg"
+              className="object-center h-full m-2 rounded-lg"
             />
           ) : (
             <div className="flex flex-col items-center text-gray-400">
@@ -143,8 +142,8 @@ const FormAddProduct = () => {
           <label className="block mb-1 font-medium">Author Company</label>
           <Input
             type="text"
-            name="aurhorCompany"
-            value={formData.aurhorCompany}
+            name="authorCompany"
+            value={formData.authorCompany}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             placeholder="Enter author company"
@@ -167,7 +166,7 @@ const FormAddProduct = () => {
             value={formData.price}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
-            placeholder="Enter price"
+            placeholder="Enter product price"
             required
           />
         </div>
@@ -177,7 +176,7 @@ const FormAddProduct = () => {
           <Input
             type="number"
             name="discount"
-            value={formData.price}
+            value={formData.discount}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             placeholder="Enter discount percentage"

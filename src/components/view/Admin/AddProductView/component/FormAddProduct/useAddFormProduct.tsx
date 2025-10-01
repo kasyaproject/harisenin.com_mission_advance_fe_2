@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const useAddFormProduct = () => {
   const route = useRouter();
   const [formData, setFormData] = useState<IProduct>({
-    id: 0,
+    id: "",
     image: "",
     title: "",
     desc: "",
@@ -14,11 +14,12 @@ const useAddFormProduct = () => {
     author: "",
     authorImage: "/image/avatar-men.png",
     authorTitle: "",
-    aurhorCompany: "",
-    rating: 0,
-    review: 0,
+    authorCompany: "",
+
     price: 0,
     discount: 0,
+    review: 0,
+    rating: 0,
   });
 
   const handleCategoryChange = (values: string[]) => {
@@ -36,7 +37,7 @@ const useAddFormProduct = () => {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "price" ? Number(value) : value, // harga jadi number
+      [name]: value,
     }));
   };
 
@@ -66,7 +67,7 @@ const useAddFormProduct = () => {
     // Buat data baru dengan ID auto increment
     const newProduct: IProduct = {
       ...formData,
-      id: productList.length + 1,
+      id: `${productList.length + 1}`, // ID auto increment
     };
 
     // Simpan ke localStorage

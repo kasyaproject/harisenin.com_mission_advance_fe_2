@@ -1,11 +1,11 @@
 "use client";
 
+import React, { ReactNode } from "react";
 import PageHead from "@/components/common/PageHead";
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { SIDEBAR_ADMIN } from "@/constant/constant";
-import React, { ReactNode } from "react";
 
 interface PropTypes {
   title?: string;

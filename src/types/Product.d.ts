@@ -1,6 +1,6 @@
 interface IProduct {
-  id: number;
-  image: string;
+  id: string;
+  image: string | null | undefined;
   title: string;
   desc: string;
   category: string[];
@@ -8,7 +8,7 @@ interface IProduct {
   author: string;
   authorImage: string;
   authorTitle: string;
-  aurhorCompany: string;
+  authorCompany: string;
 
   rating: number;
   review: number;

@@ -4,7 +4,7 @@ import AddProductView from "@/components/view/Admin/AddProductView";
 
 const AddProductPage = () => {
   return (
-    <DashboardLayout title="Add Product Page" desc="Create a new product.">
+    <DashboardLayout title="Add New Product" desc="Create a new product.">
       <AddProductView />
     </DashboardLayout>
   );

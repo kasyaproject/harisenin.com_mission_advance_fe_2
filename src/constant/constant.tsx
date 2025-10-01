@@ -34,7 +34,7 @@ const ALL_MENU = {
 
 const VIDEO_PEMBELAJARAN = [
   {
-    id: 1,
+    id: "1",
     image: "/image/cover/1.jpg",
     title: "Belajar React Dasar",
     desc: "Pelajari fundamental React mulai dari konsep komponen, props, state, hingga membuat aplikasi sederhana. Materi ini dirancang khusus untuk pemula yang ingin memahami dasar React sebelum melangkah ke level yang lebih lanjut.",
@@ -43,7 +43,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "John Doe",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "ABC Company",
+    authorCompany: "ABC Company",
 
     rating: 4.5,
     review: 10,
@@ -51,7 +51,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 2,
+    id: "2",
     image: "/image/cover/2.jpg",
     title: "Strategi Marketing",
     desc: "Kenali strategi pemasaran modern dengan pendekatan digital dan konvensional. Kursus ini membahas cara memahami target pasar, menyusun kampanye yang efektif, serta meningkatkan brand awareness untuk bisnis Anda.",
@@ -60,7 +60,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Jane Smith",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "XYZ Company",
+    authorCompany: "XYZ Company",
 
     rating: 2.5,
     review: 8,
@@ -68,7 +68,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 3,
+    id: "3",
     image: "/image/cover/3.jpg",
     title: "Desain UI/UX",
     desc: "Pelajari prinsip dasar desain antarmuka dan pengalaman pengguna. Materi meliputi wireframing, prototyping, hingga praktik terbaik dalam menciptakan produk digital yang estetis sekaligus mudah digunakan.",
@@ -77,7 +77,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Mark Johnson",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "ABC Company",
+    authorCompany: "ABC Company",
 
     rating: 3.0,
     review: 5,
@@ -85,7 +85,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 4,
+    id: "4",
     image: "/image/cover/4.jpg",
     title: "Manajemen Proyek Agile",
     desc: "Pahami cara mengelola proyek menggunakan metode Agile. Kursus ini membahas Scrum, Sprint Planning, serta bagaimana membangun kolaborasi tim yang produktif untuk mencapai target dengan fleksibilitas tinggi.",
@@ -94,7 +94,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Emily Davis",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "XYZ Company",
+    authorCompany: "XYZ Company",
 
     rating: 4.0,
     review: 12,
@@ -102,7 +102,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 5,
+    id: "5",
     image: "/image/cover/5.jpg",
     title: "SEO untuk Pemula",
     desc: "Belajar langkah-langkah meningkatkan visibilitas website di mesin pencari. Anda akan memahami dasar-dasar keyword research, optimasi on-page, serta strategi link building untuk mendapatkan peringkat yang lebih baik.",
@@ -111,7 +111,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Michael Wilson",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "ABC Company",
+    authorCompany: "ABC Company",
 
     rating: 3.5,
     review: 7,
@@ -119,7 +119,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 6,
+    id: "6",
     image: "/image/cover/6.jpg",
     title: "Photoshop Dasar",
     desc: "Pelajari keterampilan dasar menggunakan Adobe Photoshop. Materi meliputi teknik cropping, color adjustment, retouching foto, hingga membuat desain grafis sederhana yang siap digunakan dalam proyek nyata.",
@@ -128,7 +128,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Sarah Thompson",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "XYZ Company",
+    authorCompany: "XYZ Company",
 
     rating: 4.5,
     review: 10,
@@ -136,7 +136,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 7,
+    id: "7",
     image: "/image/cover/7.jpg",
     title: "Keterampilan Public Speaking",
     desc: "Tingkatkan kemampuan berbicara di depan umum dengan percaya diri. Kursus ini memberikan tips mengenai struktur presentasi, bahasa tubuh, serta cara mengatasi rasa gugup agar komunikasi lebih efektif.",
@@ -145,7 +145,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "David Johnson",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "ABC Company",
+    authorCompany: "ABC Company",
 
     rating: 5.0,
     review: 15,
@@ -153,7 +153,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 8,
+    id: "8",
     image: "/image/cover/8.jpg",
     title: "Data Analysis dengan Excel",
     desc: "Kuasi teknik analisis data menggunakan Microsoft Excel. Dari fungsi dasar, pivot table, hingga visualisasi data, kursus ini membantu Anda mengambil keputusan bisnis berdasarkan data yang akurat.",
@@ -162,7 +162,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Emily Davis",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "XYZ Company",
+    authorCompany: "XYZ Company",
 
     rating: 4.5,
     review: 8,
@@ -170,7 +170,7 @@ const VIDEO_PEMBELAJARAN = [
     discount: 20,
   },
   {
-    id: 9,
+    id: "9",
     image: "/image/cover/9.jpg",
     title: "Branding & Positioning",
     desc: "Pelajari bagaimana membangun identitas merek yang kuat. Kursus ini membahas strategi brand positioning, storytelling, dan cara membedakan produk Anda di pasar yang kompetitif.",
@@ -179,7 +179,7 @@ const VIDEO_PEMBELAJARAN = [
     author: "Michael Wilson",
     authorImage: "/image/avatar-men.png",
     authorTitle: "Pengajar Profesional",
-    aurhorCompany: "ABC Company",
+    authorCompany: "ABC Company",
 
     rating: 3.5,
     review: 6,

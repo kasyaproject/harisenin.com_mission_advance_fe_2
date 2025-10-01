@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import { IProduct } from "@/types/Product";
+import { useRouter } from "next/navigation";
 
 export const getColumns = (
   handleDelete: (id: number) => void
@@ -19,7 +20,7 @@ export const getColumns = (
   {
     accessorKey: "image",
     header: () => {
-      return <p className="text-center">Cover</p>;
+      return <p className="text-center font-smilibold">Cover</p>;
     },
     cell: ({ row }) => (
       <div className="flex items-center justify-center w-36 lg:w-full">
@@ -81,29 +82,43 @@ export const getColumns = (
   // column actions
   {
     id: "id",
-    header: "Actions",
+    header: "",
     enableHiding: false,
     cell: ({ row }) => {
+      const router = useRouter();
+
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="w-8 h-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="bg-white">
-            <DropdownMenuItem onClick={() => console.log(row.original.id)}>
-              Edit
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="text-red-600"
-              onClick={() => handleDelete(row.original.id)}
-            >
-              Delete
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex items-center justify-center min-w-20 ">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="w-8 h-8 p-0 hover:cursor-pointer hover:bg-gray-100"
+              >
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-white">
+              <DropdownMenuItem
+                className="hover:cursor-pointer"
+                onClick={() =>
+                  router.push(`/admin/product/show-product/${row.original.id}`)
+                }
+              >
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="text-red-600 hover:cursor-pointer"
+                onClick={() =>
+                  handleDelete(`${row.original.id} ` as unknown as number)
+                }
+              >
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       );
     },
   },
