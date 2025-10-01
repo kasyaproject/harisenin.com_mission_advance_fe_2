@@ -2,11 +2,10 @@
 
 import React from "react";
 import { DataTable } from "./component/DataTable";
-import { getColumns } from "./component/ColumnsTable";
 import useProductView from "./useProductView";
 
 const ProductView = () => {
-  const { productList, handleDelete } = useProductView();
+  const { productList, columns } = useProductView();
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)]">
@@ -14,7 +13,7 @@ const ProductView = () => {
         <div className="p-2 bg-white border border-gray-200 rounded-md shadow-sm">
           <div className="w-full max-w-5xl lg:p-6 ">
             {/* Table Product */}
-            <DataTable columns={getColumns(handleDelete)} data={productList} />
+            <DataTable columns={columns} data={productList} />
           </div>
         </div>
       </div>

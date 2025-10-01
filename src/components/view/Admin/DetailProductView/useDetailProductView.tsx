@@ -32,14 +32,14 @@ const useDetailProductView = () => {
   // Handle submit untuk update data
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement>,
-    formData: Record<string, any>
+    formData: Record<string, IProduct>
   ) => {
     e.preventDefault();
 
     if (!product) return;
 
     const storedProducts = localStorage.getItem("VIDEO_PEMBELAJARAN");
-    let products = storedProducts ? JSON.parse(storedProducts) : [];
+    const products = storedProducts ? JSON.parse(storedProducts) : [];
 
     // Cari produk berdasarkan id
     const productIndex = products.findIndex(

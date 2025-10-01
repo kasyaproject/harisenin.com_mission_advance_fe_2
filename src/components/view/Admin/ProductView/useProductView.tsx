@@ -3,9 +3,12 @@
 import { useEffect, useState } from "react";
 import { VIDEO_PEMBELAJARAN } from "@/constant/constant";
 import { IProduct } from "@/types/Product";
+import { useRouter } from "next/navigation";
+import { getColumns } from "./component/ColumnsTable";
 
 const useProductView = () => {
   const [productList, setProductList] = useState<IProduct[]>([]);
+  const router = useRouter();
 
   // Ambil data dari localStorage saat halaman di load
   useEffect(() => {
@@ -38,7 +41,9 @@ const useProductView = () => {
     });
   };
 
-  return { productList, handleDelete };
+  const columns = getColumns(router, handleDelete);
+
+  return { productList, columns };
 };
 
 export default useProductView;

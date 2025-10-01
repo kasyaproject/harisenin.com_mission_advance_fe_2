@@ -1,6 +1,5 @@
-import { IProduct } from "@/types/Product";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { IProduct } from "@/types/Product";
 
 interface PropTypes {
   data?: IProduct;

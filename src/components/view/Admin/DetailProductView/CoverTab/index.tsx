@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { TabsContent } from "@/components/ui/tabs";
 import { IProduct } from "@/types/Product";
 import Image from "next/image";

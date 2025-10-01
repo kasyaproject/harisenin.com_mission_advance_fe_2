@@ -14,6 +14,7 @@ import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
 
 export const getColumns = (
+  router: ReturnType<typeof useRouter>,
   handleDelete: (data: IProduct) => void
 ): ColumnDef<IProduct>[] => [
   // column image
@@ -85,8 +86,6 @@ export const getColumns = (
     header: "",
     enableHiding: false,
     cell: ({ row }) => {
-      const router = useRouter();
-
       return (
         <div className="flex items-center justify-center min-w-20 ">
           <DropdownMenu>
