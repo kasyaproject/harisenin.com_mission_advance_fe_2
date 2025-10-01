@@ -2,29 +2,22 @@ import React from "react";
 import Image from "next/image";
 import formatK from "@/lib/formatPrice";
 import Rating from "@mui/material/Rating";
+import { IProduct } from "@/types/Product";
 
 interface PropTypes {
-  image: string;
-  title: string;
-  desc: string;
-  category: string[];
-  author: string;
-  authorImage: string;
-  authorTitle: string;
-  aurhorCompany?: string; // optional kalau ga semua ada
-  rating: number;
-  review?: number;
-  price: number;
-  discount: number;
+  item: IProduct;
 }
 
-const VideoCard = ({ item }: { item: PropTypes }) => {
+const VideoCard = (props: PropTypes) => {
+  const { item } = props;
+
   return (
     <div className="w-full p-4 transition duration-150 ease-in-out bg-white border border-gray-200 rounded-lg delay-50 lg:p-6 hover:cursor-pointer hover:scale-105 hover:-translate-y-1">
       <div className="flex flex-row gap-2 lg:flex-col">
         {/* <!-- Cover image Video --> */}
         <Image
-          src={item.image}
+          src={item.image || ""}
+          loading="lazy"
           alt="img-cover"
           width={800}
           height={300}
@@ -56,7 +49,7 @@ const VideoCard = ({ item }: { item: PropTypes }) => {
                 {item.authorTitle} di
                 <span className="font-semibold text-black">
                   {" "}
-                  {item.aurhorCompany}
+                  {item.authorCompany}
                 </span>
               </p>
             </div>
