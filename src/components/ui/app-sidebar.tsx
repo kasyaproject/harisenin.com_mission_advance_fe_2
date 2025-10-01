@@ -7,7 +7,6 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -24,7 +23,6 @@ import Link from "next/link";
 import AvatarProfile from "../common/AvatarProfile";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { Separator } from "@/components/ui/separator";
 
 interface SidebarItem {
   title: string;
