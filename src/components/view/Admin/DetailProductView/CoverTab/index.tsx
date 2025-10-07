@@ -67,7 +67,11 @@ const CoverTab = (props: PropTypes) => {
           Upload product cover image. PNG, JPG up to 2MB
         </p>
 
-        <Button type="submit" className="mt-4 text-white hover:cursor-pointer">
+        <Button
+          type="submit"
+          disabled
+          className="mt-4 text-white hover:cursor-pointer"
+        >
           Update Cover
         </Button>
       </form>

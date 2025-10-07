@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { IProduct } from "@/types/Product";
+import productServices from "@/services/product.service";
 
 const useDetailProductView = () => {
   const params = useParams(); // ambil id dari url
@@ -9,23 +10,29 @@ const useDetailProductView = () => {
 
   const [product, setProduct] = useState<IProduct | null>(null);
 
+  // Fetch product data from mock API
+  const getProductData = async () => {
+    try {
+      const res = await productServices.getProductById(`${slug}`);
+      const { data } = res;
+
+      return data;
+    } catch (error) {
+      return console.log(error);
+    }
+  };
+
   useEffect(() => {
-    // Mengambil data dari localStorage
-    const stored = localStorage.getItem("VIDEO_PEMBELAJARAN");
-
-    if (stored) {
-      // Jika data ada di localStorage
-      const productList: IProduct[] = JSON.parse(stored);
-      // Cari data berdasarkan id
-      const getData = productList.find((data) => data.id === slug);
-
-      if (getData) {
-        setProduct(getData);
-      } else {
-        // Jika data tidak ditemukan, redirect ke halaman product
-        alert("Product not found!");
-        router.push("/admin/product");
-      }
+    // fetch data by slug
+    if (slug) {
+      getProductData().then((result) => {
+        if (result) {
+          setProduct(result);
+        }
+      });
+    } else {
+      // jika tidak ada slug, redirect ke halaman product
+      router.push("/admin/products");
     }
   }, [slug, router]);
 
@@ -38,23 +45,20 @@ const useDetailProductView = () => {
 
     if (!product) return;
 
-    const storedProducts = localStorage.getItem("VIDEO_PEMBELAJARAN");
-    const products = storedProducts ? JSON.parse(storedProducts) : [];
+    const updatedData = { ...product, ...formData };
 
-    // Cari produk berdasarkan id
-    const productIndex = products.findIndex(
-      (p: IProduct) => p.id === product.id
-    );
+    // Panggil API untuk update data produk
+    productServices
+      .updateProduct(product.id, updatedData)
+      .then((res) => {
+        alert("Produk berhasil diupdate!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Gagal mengupdate produk.");
+      });
 
-    if (productIndex !== -1) {
-      products[productIndex] = {
-        ...products[productIndex],
-        ...formData, // merge field sesuai tab
-      };
-
-      localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(products));
-      alert("✅ Product updated successfully!");
-    }
+    return updatedData;
   };
 
   return { product, handleSubmit };
