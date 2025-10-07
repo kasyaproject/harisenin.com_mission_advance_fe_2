@@ -29,14 +29,17 @@ const useProductView = () => {
 
   // Handle Delete Product
   const handleDelete = (data: IProduct) => {
-    // setProductList((productList) => {
-    //   const updated = productList.filter((item) => item.id !== data.id);
-    //   // Tampilkan notifikasi sukses
-    //   alert(`✅ Product "${data.title}" deleted successfully!`);
-    //   // Simpan perubahan ke localStorage
-    //   localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(updated));
-    //   return updated;
-    // });
+    // Confirm before delete
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+
+    // If confirmed, delete the product and refresh the product list
+    if (confirmDelete) {
+      productServices.deleteProduct(data.id).then(() => {
+        getProductData().then((result) => setProductData(result));
+      });
+    }
   };
 
   const columns = getColumns(router, handleDelete);
