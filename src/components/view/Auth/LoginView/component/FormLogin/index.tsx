@@ -1,7 +1,7 @@
 "use client";
 
 import { Eye, EyeOff } from "lucide-react";
-import React, { useState } from "react";
+import React from "react";
 import useFormLogin from "./useFormLogin";
 
 const FormLogin = () => {

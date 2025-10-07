@@ -5,7 +5,7 @@ import { DataTable } from "./component/DataTable";
 import useProductView from "./useProductView";
 
 const ProductView = () => {
-  const { productList, columns } = useProductView();
+  const { productData, columns } = useProductView();
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)]">
@@ -13,7 +13,7 @@ const ProductView = () => {
         <div className="p-2 bg-white border border-gray-200 rounded-md shadow-sm">
           <div className="w-full max-w-5xl lg:p-6 ">
             {/* Table Product */}
-            <DataTable columns={columns} data={productList} />
+            <DataTable columns={columns} data={productData} />
           </div>
         </div>
       </div>

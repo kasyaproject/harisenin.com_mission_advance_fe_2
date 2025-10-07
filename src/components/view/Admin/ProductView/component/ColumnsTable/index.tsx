@@ -25,13 +25,17 @@ export const getColumns = (
     },
     cell: ({ row }) => (
       <div className="flex items-center justify-center w-36 lg:w-full">
-        <Image
-          src={row.getValue("image")}
-          alt="img-cover"
-          width={800}
-          height={300}
-          className="object-cover w-32 rounded-lg h-22"
-        />
+        {row.getValue("image") ? (
+          <Image
+            src={row.getValue("image")}
+            alt="img-cover"
+            width={800}
+            height={300}
+            className="object-cover w-32 rounded-lg h-22"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-32 h-22">-</div>
+        )}
       </div>
     ),
   },

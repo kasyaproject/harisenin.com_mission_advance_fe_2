@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
+import productServices from "@/services/product.service";
 
 const useAddFormProduct = () => {
   const route = useRouter();
@@ -56,23 +57,23 @@ const useAddFormProduct = () => {
     reader.readAsDataURL(file); // konversi file ke base64
   };
 
+  const addNewProduct = async (payload: IProduct) => {
+    const res = await productServices.addProduct(payload);
+
+    return res;
+  };
+
   // Handle submit form
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Ambil data lama dari localStorage
-    const stored = localStorage.getItem("VIDEO_PEMBELAJARAN");
-    const productList: IProduct[] = stored ? JSON.parse(stored) : [];
-
     // Buat data baru dengan ID auto increment
     const newProduct: IProduct = {
       ...formData,
-      id: `${productList.length + 1}`, // ID auto increment
+      image: "/image/cover/1.jpg",
     };
 
-    // Simpan ke localStorage
-    const updatedList = [...productList, newProduct];
-    localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(updatedList));
+    addNewProduct(newProduct);
 
     alert("Product berhasil ditambahkan!");
     route.push("/admin/product");

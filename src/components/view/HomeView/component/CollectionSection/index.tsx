@@ -2,27 +2,27 @@
 
 import { useEffect, useState } from "react";
 import VideoCollection from "./component/VideoCollection";
-import { apiInstanceMockapi } from "@/services/api";
+import productServices from "@/services/product.service";
 
 const CollectionSection = () => {
   const [productData, setProductData] = useState([]);
 
+  // Fetch product data from mock API
   const getProductData = async () => {
     try {
-      const url = `/products`;
+      const res = await productServices.getAllProducts();
+      const { data } = res;
 
-      const response = await apiInstanceMockapi.get(url);
-      if (response.status === 200) return response.data;
+      return data;
     } catch (error) {
       return console.log(error);
     }
   };
 
+  // Fetch product data when the component mounts
   useEffect(() => {
     getProductData().then((result) => setProductData(result));
   }, []);
-
-  console.log("productData:", productData);
 
   return (
     <div className="w-full rounded-lg">

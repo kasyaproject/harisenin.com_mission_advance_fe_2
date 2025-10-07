@@ -1,49 +1,47 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { VIDEO_PEMBELAJARAN } from "@/constant/constant";
 import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
 import { getColumns } from "./component/ColumnsTable";
+import productServices from "@/services/product.service";
 
 const useProductView = () => {
-  const [productList, setProductList] = useState<IProduct[]>([]);
+  const [productData, setProductData] = useState([]);
   const router = useRouter();
 
-  // Ambil data dari localStorage saat halaman di load
-  useEffect(() => {
-    // Mengambil data dari localStorage
-    const stored = localStorage.getItem("VIDEO_PEMBELAJARAN");
+  // Fetch product data from mock API
+  const getProductData = async () => {
+    try {
+      const res = await productServices.getAllProducts();
+      const { data } = res;
 
-    // Jika data ada di localStorage
-    if (stored) {
-      setProductList(JSON.parse(stored));
-    } else {
-      // Jika data tidak ada di localStorage
-      localStorage.setItem(
-        "VIDEO_PEMBELAJARAN", // Nama key di localStorage
-        JSON.stringify(VIDEO_PEMBELAJARAN) // Data yang ingin disimpan
-      );
+      return data;
+    } catch (error) {
+      return console.log(error);
     }
+  };
+
+  // Fetch product data when the component di load
+  useEffect(() => {
+    getProductData().then((result) => setProductData(result));
   }, []);
 
   // Handle Delete Product
   const handleDelete = (data: IProduct) => {
-    setProductList((productList) => {
-      const updated = productList.filter((item) => item.id !== data.id);
-
-      // Tampilkan notifikasi sukses
-      alert(`✅ Product "${data.title}" deleted successfully!`);
-
-      // Simpan perubahan ke localStorage
-      localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(updated));
-      return updated;
-    });
+    // setProductList((productList) => {
+    //   const updated = productList.filter((item) => item.id !== data.id);
+    //   // Tampilkan notifikasi sukses
+    //   alert(`✅ Product "${data.title}" deleted successfully!`);
+    //   // Simpan perubahan ke localStorage
+    //   localStorage.setItem("VIDEO_PEMBELAJARAN", JSON.stringify(updated));
+    //   return updated;
+    // });
   };
 
   const columns = getColumns(router, handleDelete);
 
-  return { productList, columns };
+  return { productData, columns };
 };
 
 export default useProductView;
