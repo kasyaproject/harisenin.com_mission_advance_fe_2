@@ -1,32 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { VIDEO_PEMBELAJARAN } from "@/constant/constant";
+import { useMemo, useState } from "react";
 import { IProduct } from "@/types/Product";
 
-const useVideoCollection = () => {
-  // Siapkan state
-  const [productList, setProductList] = useState<IProduct[]>([]);
+const useVideoCollection = (productData: IProduct[]) => {
+  // State untuk kategori video aktif
   const [categoryVideo, setCategoryVideo] = useState("all");
 
-  // Ambil data dari localStorage saat halaman di load
-  useEffect(() => {
-    // Mengambil data dari localStorage
-    const stored = localStorage.getItem("VIDEO_PEMBELAJARAN");
+  // Filter video berdasarkan kategori yang dipilih
+  const filteredVideos = useMemo(() => {
+    if (categoryVideo === "all") return productData;
+    return productData.filter((video) =>
+      video.category.includes(categoryVideo)
+    );
+  }, [categoryVideo, productData]);
 
-    // Jika data ada di localStorage
-    if (stored) {
-      setProductList(JSON.parse(stored));
-    } else {
-      // Jika data tidak ada di localStorage
-      localStorage.setItem(
-        "VIDEO_PEMBELAJARAN", // Nama key di localStorage
-        JSON.stringify(VIDEO_PEMBELAJARAN) // Data yang ingin disimpan
-      );
-    }
-  }, []);
-
-  return { productList, categoryVideo, setCategoryVideo };
+  return { categoryVideo, setCategoryVideo, filteredVideos };
 };
 
 export default useVideoCollection;

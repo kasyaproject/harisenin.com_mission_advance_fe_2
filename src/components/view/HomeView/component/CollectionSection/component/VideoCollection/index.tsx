@@ -4,9 +4,16 @@ import React from "react";
 import CategoryButton from "../CategoryButton";
 import VideoCard from "@/components/common/VideoCard";
 import useVideoCollection from "./useVideoCollection";
+import { IProduct } from "@/types/Product";
 
-const VideoCollection = () => {
-  const { productList, categoryVideo, setCategoryVideo } = useVideoCollection();
+interface PropTypes {
+  productData: IProduct[];
+}
+
+const VideoCollection = (props: PropTypes) => {
+  const { productData } = props;
+  const { categoryVideo, setCategoryVideo, filteredVideos } =
+    useVideoCollection(productData);
 
   return (
     <div>
@@ -16,7 +23,7 @@ const VideoCollection = () => {
       />
 
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-        {productList
+        {filteredVideos
           .filter(
             (item) =>
               categoryVideo === "all" || item.category.includes(categoryVideo)
