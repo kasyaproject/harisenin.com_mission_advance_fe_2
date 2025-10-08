@@ -11,19 +11,19 @@ import useCoverTab from "./useCoverTab";
 interface PropTypes {
   value: string;
   data?: IProduct;
-  handleSubmit: (
+  handleUpdate: (
     e: React.FormEvent<HTMLFormElement>,
     updated: Partial<IProduct>
   ) => void;
 }
 
 const CoverTab = (props: PropTypes) => {
-  const { value, data, handleSubmit } = props;
+  const { value, data, handleUpdate } = props;
   const { image, handleFileChange } = useCoverTab({ data });
 
   return (
     <TabsContent value={value}>
-      <form onSubmit={(e) => handleSubmit(e, { image })}>
+      <form onSubmit={(e) => handleUpdate(e, { image })}>
         <div className="relative flex flex-col items-center justify-center w-full p-2 transition border-2 border-gray-300 border-dashed rounded-lg cursor-pointer h-60 bg-gray-50 hover:bg-gray-100">
           {image ? (
             <Image

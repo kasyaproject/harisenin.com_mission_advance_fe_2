@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { IProduct } from "@/types/Product";
 import productServices from "@/services/product.service";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/lib/redux/store";
+import { updateProduct } from "@/features/products/productSlice";
 
 const useDetailProductView = () => {
   const params = useParams(); // ambil id dari url
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
   const { slug } = params;
 
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -37,7 +41,7 @@ const useDetailProductView = () => {
   }, [slug, router]);
 
   // Handle submit untuk update data
-  const handleSubmit = (
+  const handleUpdate = async (
     e: React.FormEvent<HTMLFormElement>,
     formData: Partial<IProduct>
   ) => {
@@ -45,23 +49,24 @@ const useDetailProductView = () => {
 
     if (!product) return;
 
-    const updatedData = { ...product, ...formData };
+    try {
+      formData.id = product.id; // pastikan id tetap ada
 
-    // Panggil API untuk update data produk
-    productServices
-      .updateProduct(product.id, updatedData)
-      .then((res) => {
-        alert("Produk berhasil diupdate!");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Gagal mengupdate produk.");
-      });
+      // Panggil thunk Redux untuk update data
+      const resultAction = await dispatch(updateProduct(formData as IProduct));
 
-    return updatedData;
+      if (updateProduct.fulfilled.match(resultAction)) {
+        alert("Produk berhasil diubah!");
+      } else {
+        alert("Gagal mengubah produk!");
+      }
+    } catch (error) {
+      console.error("Error saat update produk:", error);
+      alert("Terjadi kesalahan saat update produk.");
+    }
   };
 
-  return { product, handleSubmit };
+  return { product, handleUpdate };
 };
 
 export default useDetailProductView;

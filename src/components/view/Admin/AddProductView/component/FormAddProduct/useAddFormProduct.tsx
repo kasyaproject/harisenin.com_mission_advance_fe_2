@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
-import productServices from "@/services/product.service";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/lib/redux/store";
+import { createProduct } from "@/features/products/productSlice";
 
 const useAddFormProduct = () => {
-  const route = useRouter();
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
   const [formData, setFormData] = useState<IProduct>({
     id: "",
     image: "",
@@ -57,14 +60,8 @@ const useAddFormProduct = () => {
     reader.readAsDataURL(file); // konversi file ke base64
   };
 
-  const addNewProduct = async (payload: IProduct) => {
-    const res = await productServices.addProduct(payload);
-
-    return res;
-  };
-
   // Handle submit form
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Buat data baru dengan ID auto increment
@@ -73,11 +70,11 @@ const useAddFormProduct = () => {
       image: "/image/cover/1.jpg",
     };
 
-    addNewProduct(newProduct);
-
-    alert("Product berhasil ditambahkan!");
-    route.push("/admin/product");
+    await dispatch(createProduct(newProduct));
+    alert("Produk berhasil ditambahkan!");
+    router.push("/admin/product");
   };
+
   return {
     formData,
     setFormData,

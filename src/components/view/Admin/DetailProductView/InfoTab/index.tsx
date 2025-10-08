@@ -1,54 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TabsContent } from "@/components/ui/tabs";
 import { IProduct } from "@/types/Product";
 import { MultiSelect } from "@/components/ui/multi-select";
 import { ALL_MENU } from "@/constant/constant";
+import useInfoTab from "./useInfoTab";
 
 interface PropTypes {
   value: string;
-  data?: IProduct;
-  handleSubmit: (
+  data: IProduct;
+  handleUpdate: (
     e: React.FormEvent<HTMLFormElement>,
     updated: Partial<IProduct>
   ) => void;
 }
 
 const InfoTab = (props: PropTypes) => {
-  const { value, data, handleSubmit } = props;
-
-  const [formData, setFormData] = useState<Partial<IProduct>>({
-    title: data?.title || "",
-    desc: data?.desc || "",
-    category: data?.category || [],
-    author: data?.author || "",
-    authorTitle: data?.authorTitle || "",
-    authorCompany: data?.authorCompany || "",
-    price: data?.price || 0,
-    discount: data?.discount || 0,
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleCategoryChange = (values: string[]) => {
-    setFormData((prev) => ({
-      ...prev,
-      category: values,
-    }));
-  };
+  const { value, data, handleUpdate } = props;
+  const { formData, handleChange, handleCategoryChange } = useInfoTab({ data });
 
   return (
     <TabsContent value={value}>
-      <form onSubmit={(e) => handleSubmit(e, formData)} className="space-y-4">
+      <form onSubmit={(e) => handleUpdate(e, formData)} className="space-y-4">
         {/*  Product Title */}
         <div>
           <label className="block mb-1 font-medium">Product Title</label>

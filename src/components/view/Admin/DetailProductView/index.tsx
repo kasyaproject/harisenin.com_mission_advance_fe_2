@@ -7,7 +7,7 @@ import CoverTab from "./CoverTab";
 import InfoTab from "./InfoTab";
 
 const DetailProductView = () => {
-  const { product, handleSubmit } = useDetailProductView();
+  const { product, handleUpdate } = useDetailProductView();
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)]">
@@ -25,12 +25,12 @@ const DetailProductView = () => {
                 <CoverTab
                   value="cover"
                   data={product}
-                  handleSubmit={handleSubmit}
+                  handleUpdate={handleUpdate}
                 />
                 <InfoTab
                   value="info"
                   data={product}
-                  handleSubmit={handleSubmit}
+                  handleUpdate={handleUpdate}
                 />
               </Tabs>
             ) : null}

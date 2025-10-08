@@ -1,50 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IProduct } from "@/types/Product";
 import { useRouter } from "next/navigation";
 import { getColumns } from "./component/ColumnsTable";
-import productServices from "@/services/product.service";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/lib/redux/store";
+import { fetchProducts, removeProduct } from "@/features/products/productSlice";
 
 const useProductView = () => {
-  const [productData, setProductData] = useState([]);
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
+  const { items, loading, error } = useSelector(
+    (state: RootState) => state.products
+  );
 
-  // Fetch product data from mock API
-  const getProductData = async () => {
-    try {
-      const res = await productServices.getAllProducts();
-      const { data } = res;
-
-      return data;
-    } catch (error) {
-      return console.log(error);
-    }
-  };
-
-  // Fetch product data when the component di load
   useEffect(() => {
-    getProductData().then((result) => setProductData(result));
-  }, []);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   // Handle Delete Product
-  const handleDelete = (data: IProduct) => {
-    // Confirm before delete
+  const handleDelete = async (data: IProduct) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this product?"
+      `Are you sure you want to delete "${data.title}"?`
     );
 
-    // If confirmed, delete the product and refresh the product list
-    if (confirmDelete) {
-      productServices.deleteProduct(data.id).then(() => {
-        getProductData().then((result) => setProductData(result));
-      });
-    }
+    if (!confirmDelete) return;
+
+    await dispatch(removeProduct(data.id));
+    alert("Produk berhasil dihapus!");
   };
 
   const columns = getColumns(router, handleDelete);
 
-  return { productData, columns };
+  return { items, loading, error, columns };
 };
 
 export default useProductView;
