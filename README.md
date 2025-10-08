@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+NEXT_PUBLIC_API_URL = https://68e4a1a68e116898997c43f7.mockapi.io/next-video-belajar/api
+
 ```bash
 npm run dev
 # or
