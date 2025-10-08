@@ -20,8 +20,11 @@ export const fetchProducts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       return await productServices.getAllProducts();
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        // Tangani error standar
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   }
 );
@@ -33,8 +36,11 @@ export const createProduct = createAsyncThunk(
     try {
       const response = await productServices.addProduct(productData);
       return response.data;
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        // Tangani error standar
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   }
 );
@@ -49,8 +55,11 @@ export const updateProduct = createAsyncThunk(
         productData
       );
       return response.data;
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        // Tangani error standar
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   }
 );
@@ -62,8 +71,11 @@ export const removeProduct = createAsyncThunk(
     try {
       await productServices.deleteProduct(id);
       return id;
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        // Tangani error standar
+        return thunkAPI.rejectWithValue(error.message);
+      }
     }
   }
 );
@@ -95,7 +107,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload.data;
+        state.items = action.payload?.data || [];
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
