@@ -19,7 +19,9 @@ export const fetchProducts = createAsyncThunk(
   "products/getAll",
   async (_, thunkAPI) => {
     try {
-      return await productServices.getAllProducts();
+      const res = await productServices.getAllProducts();
+
+      return res.data;
     } catch (error) {
       if (error instanceof Error) {
         // Tangani error standar
@@ -35,6 +37,7 @@ export const createProduct = createAsyncThunk(
   async (productData: IProduct, thunkAPI) => {
     try {
       const response = await productServices.addProduct(productData);
+
       return response.data;
     } catch (error) {
       if (error instanceof Error) {
@@ -54,6 +57,7 @@ export const updateProduct = createAsyncThunk(
         productData.id,
         productData
       );
+
       return response.data;
     } catch (error) {
       if (error instanceof Error) {
@@ -107,7 +111,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload?.data || [];
+        state.items = action.payload || [];
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
