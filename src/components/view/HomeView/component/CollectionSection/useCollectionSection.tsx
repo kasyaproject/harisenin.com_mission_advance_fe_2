@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { fetchProducts } from "@/features/products/productSlice";
 import { AppDispatch, RootState } from "@/lib/redux/store";
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const useCollectionSection = () => {
