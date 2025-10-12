@@ -88,7 +88,6 @@ const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    // Optional local reducers (tidak async)
     addProduct: (state, action) => {
       state.items.push(action.payload);
     },
